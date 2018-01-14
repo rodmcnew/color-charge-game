@@ -142,8 +142,12 @@ setInterval(() => {
         // 'Fy' + ': ' + totalForceVector[1] + '\n' +
         'Velocity' + ': ' + totalVelocity.toFixed(2) + (atMaxV ? ' (!)' : '') + '\n' +
         (totalVelocity >= 10 ? '(!) Winning (!)' : '') + '\n' +
-        'You are the moving particle.\nLike colors repel.\nDifferent colors attract.\nUse "W", "S", and "D" to change you color.\n' +
-        'Get your velocity above 10 to win the game.\nCmd + R to restart.'
+        'You are the moving particle.\n' +
+        'Like colors repel.\n' +
+        'Different colors attract.\n' +
+        'Use "W", "S", and "D" to change your color.\n' +
+        'Get your velocity above 10 to win the game.\n' +
+        'Cmd + R to restart.'
         // 'Vx' + ': ' + player.velocity[0] + '\n' +
         // 'Vy' + ': ' + player.velocity[1] + '\n' +
         // 'Px' + ': ' + player.position[0] + '\n' +
