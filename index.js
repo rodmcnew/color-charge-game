@@ -8,7 +8,7 @@ const world = {
     maxVelocity: Number.POSITIVE_INFINITY,
     quarkCount: 3
 };
-const charges = ['red', 'green', 'blue'];
+// const charges = ['red', 'green', 'blue'];
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -48,9 +48,9 @@ const player = {
     charge: 'red'
 };
 
-let frame = 0;
+// let frame = 0;
 setInterval(() => {
-    frame++;
+    // frame++;
     ctx.clearRect(0, 0, c.width, c.height);
     quarks.forEach((quark) => {
         ctx.beginPath();
@@ -64,6 +64,14 @@ setInterval(() => {
     ctx.fillStyle = player.charge;
     ctx.fill();
     ctx.arc(player.position[0], player.position[1], 5, 0, 2 * Math.PI);
+    ctx.stroke();
+
+    const velocityLineMultiplier = 10;
+    ctx.moveTo(player.position[0], player.position[1]);
+    ctx.lineTo(
+        player.position[0] - player.velocity[0] * velocityLineMultiplier,
+        player.position[1] - player.velocity[1] * velocityLineMultiplier
+    );
     ctx.stroke();
 
     let totalForceVector = [0, 0];
@@ -110,14 +118,6 @@ setInterval(() => {
         player.velocity[1] = player.velocity[1] * -1;
 
     }
-
-    const velocityLineMultiplier = 10;
-    ctx.moveTo(player.position[0], player.position[1]);
-    ctx.lineTo(
-        player.position[0] - player.velocity[0] * velocityLineMultiplier,
-        player.position[1] - player.velocity[1] * velocityLineMultiplier
-    );
-    ctx.stroke();
 
     // if (player.position[0] > world.size[0]) {
     //     player.velocity[0] = 0;
