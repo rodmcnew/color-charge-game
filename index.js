@@ -3,11 +3,13 @@ const ctx = c.getContext("2d");
 const infoTextArea = document.getElementById('info');
 
 const world = {
-    size: [512, 512],
+    size: [1024, 768],
     forceStrength: 100,
     quarkCount: 6,
     otherQuarksMove: false
 };
+c.width = world.size[0];
+c.height = world.size[1];
 const charges = ['red', 'green', 'blue'];
 const antiCharges = ['cyan', 'pink', 'yellow'];
 
@@ -20,13 +22,15 @@ let quarks = [];
 for (let i = 0; i < world.quarkCount; i++) {
     quarks.push(
         {
-            position: [getRandomInt(0, world.size[0]), getRandomInt(0, world.size[1])],
+            position: [
+                getRandomInt(0, world.size[0] / 2) + world.size[0] / 4,
+                getRandomInt(0, world.size[1] / 2) + world.size[1] / 4
+            ],
             velocity: [0, 0],
             charge: getRandomInt(0, 2)
         },
     )
 }
-
 
 function doPhysics() {
     quarks.forEach((quark, i) => {
@@ -70,13 +74,13 @@ function doPhysics() {
 
     infoTextArea.value = (
         'Velocity' + ': ' + totalVelocity.toFixed(2) + '\n' +
-        (totalVelocity >= 10 ? '(!) Winning (!)' : '') + '\n\n\n' +
+        (totalVelocity >= 10 ? '(!) Winning (!)' : '') + '\n\n\n'
         // 'Fx' + ': ' + totalForceVector[0].toFixed(2) + '\n' +
         // 'Fy' + ': ' + totalForceVector[1].toFixed(2) + '\n' +
-        'Vx' + ': ' + quarks[0].velocity[0].toFixed(2) + '\n' +
-        'Vy' + ': ' + quarks[0].velocity[1].toFixed(2) + '\n' +
-        'Px' + ': ' + quarks[0].position[0].toFixed(2) + '\n' +
-        'Py' + ': ' + quarks[0].position[1].toFixed(2) + '\n'
+        // 'Vx' + ': ' + quarks[0].velocity[0].toFixed(2) + '\n' +
+        // 'Vy' + ': ' + quarks[0].velocity[1].toFixed(2) + '\n' +
+        // 'Px' + ': ' + quarks[0].position[0].toFixed(2) + '\n' +
+        // 'Py' + ': ' + quarks[0].position[1].toFixed(2) + '\n'
     );
 
 }
