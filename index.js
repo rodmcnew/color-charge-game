@@ -74,7 +74,7 @@ function doPhysics() {
 
     infoTextArea.value = (
         'Velocity' + ': ' + totalVelocity.toFixed(2) + '\n' +
-        (totalVelocity >= 10 ? '(!) Winning (!)' : '') + '\n\n\n'
+        (totalVelocity >= 10 ? '(!) Winning (!)' : '')
         // 'Fx' + ': ' + totalForceVector[0].toFixed(2) + '\n' +
         // 'Fy' + ': ' + totalForceVector[1].toFixed(2) + '\n' +
         // 'Vx' + ': ' + quarks[0].velocity[0].toFixed(2) + '\n' +
